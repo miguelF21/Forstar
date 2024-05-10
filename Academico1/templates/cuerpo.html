@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foro</title>
+    <link rel="stylesheet" href="{% static 'css/stylescuerpo.css' %}">
+</head>
+<body>
+    <header>
+        <!-- Encabezado del foro -->
+        <h1>Foro de Discusión</h1>
+        <nav>
+            <!-- Menú de navegación -->
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Categorías</a></li>
+                <li><a href="#">Buscar</a></li>
+                <li><a href="#">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <!-- Contenedor principal -->
+        <section class="main">
+            <!-- Cuerpo principal del foro -->
+            <h2>Hacer Pregunta</h2>
+            <!-- Formulario para hacer pregunta -->
+            <form action="#" method="POST">
+                {% csrf_token %}
+                <!-- Campo de pregunta -->
+                <div class="form-group">
+                    <label for="pregunta">Pregunta</label>
+                    <textarea id="pregunta" name="pregunta" rows="4" required></textarea>
+                </div>
+                <!-- Campo de etiqueta -->
+                <div class="form-group">
+                    <label for="etiqueta">Etiqueta</label>
+                    <input type="text" id="etiqueta" name="etiqueta" required>
+                </div>
+                <!-- Selección de curso y semestre -->
+                <div class="form-group">
+                    <label for="curso">Curso</label>
+                    <select id="curso" name="curso" required>
+                        <option value="curso1">Curso 1</option>
+                        <option value="curso2">Curso 2</option>
+                        <!-- Agregar más cursos aquí -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="semestre">Semestre</label>
+                    <select id="semestre" name="semestre" required>
+                        <option value="semestre1">Semestre 1</option>
+                        <option value="semestre2">Semestre 2</option>
+                        <!-- Agregar más semestres aquí -->
+                    </select>
+                </div>
+                <!-- Botón para enviar pregunta -->
+                <button type="submit">Enviar Pregunta</button>
+            </form>
+            
+            <!-- Apartado de comentarios -->
+            <h2>Comentarios</h2>
+            <!-- Lista de comentarios -->
+            <ul class="comment-list">
+                <li>
+                    <p>Comentario 1</p>
+                    <!-- Botón para reportar comentario -->
+                    <button class="report-btn">Reportar</button>
+                    <!-- Botón para votar por el comentario -->
+                    <button class="vote-btn">Votar</button>
+                    <!-- Botón para enviar mensaje -->
+                    <button class="message-btn">Mensaje</button>
+                </li>
+                <li>
+                    <p>Comentario 2</p>
+                    <!-- Botón para reportar comentario -->
+                    <button class="report-btn">Reportar</button>
+                    <!-- Botón para votar por el comentario -->
+                    <button class="vote-btn">Votar</button>
+                    <!-- Botón para enviar mensaje -->
+                    <button class="message-btn">Mensaje</button>
+                </li>
+                <!-- Más comentarios aquí -->
+            </ul>
+        </section>
+        
+        <!-- Barra lateral -->
+        <aside class="sidebar">
+            <!-- Menú desplegable -->
+            <h2>Menú</h2>
+            <select id="menu">
+                <option value="mis_preguntas">Mis Preguntas</option>
+                <option value="mis_respuestas">Mis Respuestas</option>
+                <option value="cursos">Cursos</option>
+            </select>
+        </aside>
+    </div>
+    
+    <footer>
+        <!-- Pie de página -->
+        <p>&copy; 2024 Foro de Discusión</p>
+    </footer>
+</body>
+</html>
